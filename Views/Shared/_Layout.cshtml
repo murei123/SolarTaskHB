@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Solar</title>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+</head>
+<body>
+    <div class="wrapper">
+    <header id="header" class="header">
+        <div class="conteiner">
+            <div class="menu-header_top">
+            </div>
+            <div class="header_body">
+                <div class="header-column">
+                        <a asp-area="" asp-controller="Home" class="header_logo" asp-action="Index"> <img src="~/img/logo.png" alt=""></a>
+                </div>
+                <div class="header_colum menu-header">
+                    <div class="menu-header_icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <nav class="menu-header_menu">
+                        <ul class="menu-header_list">
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index" class="menu-header_link">Главная</a></li>
+                            <li><a asp-area="" asp-controller="Person" asp-action="Index" class="menu-header_link">Список</a></li>
+                            <li><a asp-area="" asp-controller="Person" asp-action="Create" class="menu-header_link">Добавить запись</a></li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+        <div class="contentcatalog">
+            
+            
+             @RenderBody()
+           
+            </div>
+
+
+        <footer class="footer">
+            <div class="conteiner">
+                <div class="footer_row">
+                    <div class="footer_text"> &copy; 2022 - Solar </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+    
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

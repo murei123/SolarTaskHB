@@ -1,0 +1,51 @@
+﻿@model Solsr.domains.Entities.Person
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить запись</h1>
+
+<h3>Вы уверены, что хотите удалить эту запись?</h3>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="delete" >
+            Имя:
+        </dt>
+        <dd class="delete_text">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class ="delete">
+           Фамилия:
+        </dt>
+        <dd class="delete_text">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="delete">
+            Отчество:
+        </dt>
+        <dd class="delete_text">
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+        <dt class="delete">
+            Дата Рождения:
+        </dt>
+        <dd cclass="delete_text">
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt class="delete">
+           Изображение:
+        </dt>
+        <dd class="delete_text">
+            @Html.DisplayFor(model => model.Picture)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="form_group_btn" /> |
+        <a asp-action="Index" class="create-header_link">На главную</a>
+    </form>
+</div>

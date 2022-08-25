@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Solsr.domains.Entities.Person>
+
+@{
+    ViewData["Title"] = "Список";
+}
+
+<h1 class="idea">Список всех дней рождений</h1>
+
+<div class="search">
+    <div class="select">
+        <form class="subform" action="/catalog" method="get">
+            <select class="sort" name="sort">
+                <option value="@SortState.DateDesc">Отсортировать по:</option>
+                <option value="@SortState.DateDesc">По убыванию даты</option>
+                <option value="@SortState.DateAsc">По возрастанию даты</option>
+                <option value="@SortState.NameDesc">По убыванию имени</option>
+                <option value="@SortState.NameAsc">По возрастанию имени</option>
+            </select>
+            
+            <button asp-action="Index" asp-route-sortOrder="sort" class="change">
+                Применить
+            </button>
+        </form>
+    </div>
+</div>
+
+
+@foreach (var item in Model)
+                {
+<div  class="catalog">
+
+    <div  class="info">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Фото
+                    </th>
+                    <th>
+                               Имя
+                           
+                    </th>
+                    <th>
+                        Фамилия
+                    </th>
+                    <th>
+                        Отчество
+                    </th>
+                    <th>
+                            
+                                Дата рождения
+                            
+                        
+                    </th>
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <td>
+                            <img class="logo" src="data:image;base64, @(item.Picture != null ? Convert.ToBase64String(item.Picture) : "~/css/some.jpg")">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FatherName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BirthDate)
+                        </td>
+                       
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+       
+    </div>
+
+</div>
+  
+}
+<div class="btn">
+
+    <a asp-action="Create" class="wave-btn">
+        <span class="wave-btn_text">Добавить запись</span>
+        <span class="wave-btn_waves"></span>
+    </a>
+</div>
+
+
